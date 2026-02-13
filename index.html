@@ -1,0 +1,213 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi munequita 💖</title>
+
+<!-- GOOGLE ANALYTICS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RFD2YVQWXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RFD2YVQWXX');
+</script>
+
+<style>
+html,body{
+margin:0;
+padding:0;
+height:100%;
+overflow:hidden;
+font-family: Georgia, serif;
+color:white;
+}
+
+/* FONDO */
+.bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("fondo.jpg") center/cover no-repeat;
+animation:breath 12s ease-in-out infinite alternate;
+z-index:-2;
+}
+@keyframes breath{
+0%{transform:scale(1);}
+100%{transform:scale(1.05);}
+}
+
+/* OSCURECER FONDO */
+.overlay{
+position:fixed;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+z-index:-1;
+}
+
+/* CONTENEDOR */
+.container{
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+box-sizing:border-box;
+}
+
+/* CARTA */
+.letter{
+max-width:700px;
+width:100%;
+height:80vh;
+overflow-y:auto;
+padding:30px;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(6px);
+border-radius:20px;
+box-shadow:0 0 40px rgba(255,255,255,0.2);
+animation:fadein 4s ease forwards;
+}
+@keyframes fadein{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* MENSAJE FINAL DORADO */
+.final{
+margin-top:40px;
+text-align:center;
+font-size:1.6em;
+font-weight:bold;
+background:linear-gradient(45deg,#fff,#ffd700,#fff);
+-webkit-background-clip:text;
+color:transparent;
+animation:gold 4s linear infinite;
+}
+@keyframes gold{
+0%{background-position:0%}
+100%{background-position:200%}
+}
+
+/* CORAZONES */
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:float 10s linear infinite;
+opacity:0.7;
+}
+@keyframes float{
+0%{transform:translateY(0) scale(1); opacity:0;}
+50%{opacity:1;}
+100%{transform:translateY(-110vh) scale(1.5); opacity:0;}
+}
+
+/* DESTELLOS */
+.sparkle{
+position:fixed;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+box-shadow:0 0 10px white;
+animation:twinkle 3s infinite alternate;
+opacity:0.7;
+}
+@keyframes twinkle{
+from{opacity:0.2; transform:scale(0.5);}
+to{opacity:1; transform:scale(1.2);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="overlay"></div>
+
+<div class="container">
+<div class="letter">
+
+<p>Amor de mi vida, munequita hermosa, bella, linda, magica, dulce, maravillosa... te extrano demasiado, no puedo vivir sin ti, sin tus munequitos, sin tus pataditas de la felicidad, esos besos de pescadito deliciosos, esos audios magicos que me levantaban el animo y me hacia ver estrellas y sentirme con fuerza, con alegria con amor mi vida...</p>
+
+<p>Hoy, en este San Valentin, el mundo parece moverse mas lento sin ti. Todo tiene tu nombre, todo me recuerda a ti… y aun asi no puedo tenerte cerquita. Te extrano de una forma que no puedo explicar con palabras, de esas que se sienten en el pecho, que pesan en los silencios y que se esconden en cada suspiro...</p>
+
+<p>Aii mis suspiros cuando escucho tu voz, cuando leo tus obras de arte o cuando simplemente escuchaba hablar a tu corazoncito hermoso...</p>
+
+<p>No hay un solo dia, ni un solo segundo, en el que no piense en ti. Eres mi primer pensamiento al despertar y el ultimo antes de dormir. A veces cierro los ojos e imagino tu voz susurrandome suavecito, imagino tu sonrisa, tus ojitos brillando, tu carita acercandose a la mia… y por un instante siento que todo vuelve a estar bien...</p>
+
+<p>Daria lo que fuera por poder escucharte ahora mismo, por poder verte sonreir frente a mi, por abrazarte con tanta pasion y quedarme ahi, sin prisa, sintiendo que el mundo se detiene solo para nosotros. Porque tu abrazo no es solo un abrazo… es mi lugar seguro, mi paz, mi hogar es mi unico lugar feliz en este mundo...</p>
+
+<p>Te extrano con una ternura infinita, con un amor que no sabe rendirse, con una nostalgia dulce que duele pero al mismo tiempo me recuerda lo afortunado que soy de haberte encontrado. Porque aunque la distancia me haga suspirar, tambien me ensena lo profunda que es mi forma de amarte...</p>
+
+<p>Si hoy pudieras ver mi corazon, lo verias lleno de ti… de recuerdos, de suenos, de esperanza, y de ese amor magico que solo tu sabes despertar en mi...</p>
+
+<p>Ojala pudieras leer esta notita de amor mi vida, te extrano demasiado... TE amo mi vida 🥹</p>
+
+<div class="final">Y nuestro amor es para siempre…</div>
+
+</div>
+</div>
+
+<audio id="music" preload="auto" loop>
+<source src="Talktome.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music=document.getElementById("music");
+let started=false;
+
+function startMusic(){
+if(started) return;
+started=true;
+
+music.volume=0;
+
+music.play().then(()=>{
+let v=0;
+const fade=setInterval(()=>{
+v+=0.02;
+if(v>=1){
+music.volume=1;
+clearInterval(fade);
+}else{
+music.volume=v;
+}
+},120);
+}).catch(()=>{});
+}
+
+document.addEventListener("click",startMusic,{once:true});
+document.addEventListener("touchstart",startMusic,{once:true});
+document.addEventListener("scroll",startMusic,{once:true});
+
+/* CORAZONES */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💖";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(15+Math.random()*25)+"px";
+h.style.animationDuration=(8+Math.random()*6)+"s";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),15000);
+},700);
+
+/* DESTELLOS */
+for(let i=0;i<25;i++){
+let s=document.createElement("div");
+s.className="sparkle";
+s.style.top=Math.random()*100+"vh";
+s.style.left=Math.random()*100+"vw";
+s.style.animationDelay=Math.random()*5+"s";
+document.body.appendChild(s);
+}
+</script>
+
+</body>
+</html>
